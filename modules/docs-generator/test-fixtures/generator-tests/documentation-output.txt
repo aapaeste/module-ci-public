@@ -1,0 +1,1 @@
+This is a documentation file, but it's not markdown, so it should be copied without any changes.

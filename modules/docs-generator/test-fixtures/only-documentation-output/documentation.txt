@@ -1,0 +1,3 @@
+This is a documentation file. It should be copied to the output folder as-is. It has a [module-XXX
+URL](https://github.com/gruntwork-io/module-ci) in it, but since this is not a Markdown file, that URL should not be
+changed.
