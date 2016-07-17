@@ -1,3 +1,8 @@
+**Note**: This public repo contains the documentation for the private GitHub repo <https://github.com/gruntwork-io/module-ci>.
+We publish the documentation publicly so it turns up in online searches, but to see the source code, you must be a Gruntwork customer.
+If you're already a Gruntwork customer, the original source for this file is at: <https://github.com/gruntwork-io/module-ci/blob/master/README.md>
+If you're not a customer, contact us at <info@gruntwork.io> or <http://www.gruntwork.io> for info on how to get access!
+
 # CI Modules
 
 This repo contains modules to automate common CI tasks, such as installing dependencies, running tests, and publishing
@@ -10,6 +15,8 @@ releases. The modules are:
   deployable, versioned artifacts of your apps using either Docker or Packer.
 * [terraform-helpers](/modules/terraform-helpers): This module contains several helper scripts for automatically
   updating Terraform variables and deploying Terraform changes.
+* [docs-generator](/modules/docs-generator): This folder contains a Go app that can be used to generate public
+  documentation from a private GitHub repo.
 
 Click on each module above to see its documentation. Head over to the [examples folder](/examples) for examples.
 

@@ -1,9 +1,15 @@
+**Note**: This public repo contains the documentation for the private GitHub repo <https://github.com/gruntwork-io/module-ci>.
+We publish the documentation publicly so it turns up in online searches, but to see the source code, you must be a Gruntwork customer.
+If you're already a Gruntwork customer, the original source for this file is at: <https://github.com/gruntwork-io/module-ci/blob/master/modules/docs-generator/README.md>
+If you're not a customer, contact us at <info@gruntwork.io> or <http://www.gruntwork.io> for info on how to get access!
+
 # Docs Generator
 
 This folder contains a Go app that can be used to generate public documentation from a private GitHub repo. It loops
 over all the files in a given input folder (typically a private GitHub repo), and copies each documentation file (e.g.
-markdown files such as this Readme) unchanged to an output folder (typically a public GitHub repo). It also copies each
-non-documentation file (e.g. source files) to the output folder, but it replaces their contents with placeholder text.
+markdown files such as this Readme) mostly unchanged to an output folder (typically a public GitHub repo). It also
+copies each non-documentation file (e.g. source files) to the output folder, but it replaces their contents with
+placeholder text.
 
 For an example of the output of this process, check out the public GitHub repo
 [module-ci-public](https://github.com/gruntwork-io/module-ci-public).
