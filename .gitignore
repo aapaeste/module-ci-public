@@ -26,17 +26,3 @@ app_linux_amd64
 
 # Output from build-packer-artifact
 packer-build.log
-
-# Make sure we don't accidentally check in source code
-*.tf
-*.go
-*.sh
-*.scala
-*.java
-*.json
-*.js
-*.rb
-*.py
-*.xml
-*.html
-*.sql
