@@ -57,9 +57,11 @@ The `docs-generator` binary supports the following options:
   update URLs.
 * `github-repo-name NAME` (required): The name of the GitHub repo. E.g. The 'bar' in github.com/foo/bar. Used to update
   URLs.
-* `doc-pattern PATTERN` (optional): Copy files that match PATTERN to the output path, unchanged. May be specified more
-  than once.
-* `exclude-pattern PATTERN` (optional): A PATTERN to exclude while copying to the output path. May be specified more
+* `doc-pattern PATTERN` (optional): Copy files that match PATTERN to the output path, unchanged. Supports standard
+  file patterns (e.g. `*.txt`, `foo/**/bar`). Make sure to quote PATTERN so bash doesn't expand it. May be specified
+  more than once.
+* `exclude-pattern PATTERN` (optional): A PATTERN to exclude while copying to the output path. Supports standard file
+  patterns (e.g. `*.tf`, `foo/**/bar`). Make sure to quote PATTERN so bash doesn't expand it.  May be specified more
   than once.
 * `help,` (optional): Show the help text and exit.
 * `version,` (optional): Print the version and exit.
