@@ -54,6 +54,9 @@ resource "aws_security_group_rule" "allow_all_http_inbound" {
 }
 ```
 
+(Note: the above example is fairly unrealistic, since it's unlikely a scheduled lambda job would every receive HTTP
+requests, but it gives you a general idea of how to modify the security group).
+
 ## How do you add additional IAM policies?
 
 By default, the scheduled-lambda-job module configures your lambda function with an IAM role that allows it to create
