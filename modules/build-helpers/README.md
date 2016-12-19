@@ -7,11 +7,10 @@ If you're not a customer, contact us at <info@gruntwork.io> or <http://www.grunt
 
 This folder contains several helper scripts for automatically building deployable, versioned artifacts of your apps:
 
-* `build-docker-image`: This script can be used to automatically build a Docker image. It runs a Docker build once
-  with the `latest` tag and once with the sha1 of the most recent commit, runs an optional test command against the
-  images, pushes the new images to a Docker registry, and writes the sha1 tag to a properties file. This script is
-  meant to be run from a CI job and the properties file is a convenient way to pass information about the new Docker
-  image to another CI job.
+* `build-docker-image`: This script is meant to be run from a CI job to automatically build a Docker image. It runs the 
+  Docker build, tags the image with the sha1 of the most recent Git commit (or a custom tag, if specified), and then 
+  pushes the new image to a Docker registry (unless the same image/tag already exists in the registry!). 
+
 * `build-packer-artifact`: This script can be used to automatically build an artifact, such as an AMI, defined in a
   Packer template. It runs a Packer build, runs an optional test command to verify the new artifact, extracts the
   artifact ID from the build, and writes the ID to a properties file. This script is meant to be run from a CI job and
@@ -66,5 +65,5 @@ with the scripts in the [terraform-helpers module](/modules/terraform-helpers) t
 ```bash
 cd templates
 terraform-update-variable --name rails_app_version --value $ARTIFACT_ID
-terraform-deploy --remote-state-bucket my_s3_bucket --aws-region us-east-1
+terragrunt apply
 ```

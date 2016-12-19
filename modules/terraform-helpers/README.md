@@ -11,10 +11,6 @@ This folder contains several helper scripts for working with [Terraform](https:/
    commit and push the changes to Git. It's common practice to store the version number of the currently deployed app
    in a variable and this script comes in handy for updating those variables automatically, such as in a CI job after
    building a new AMI or Docker image.
-2. `terraform-deploy`: This script automates all the steps it takes to deploy Terraform templates. This includes
-   installing Terraform itself, configuring remote state storage, downloading Terraform modules, generating a plan,
-   and running `apply`. If you combine this script with the `terraform-update-variable` script, you can easily
-   deploy a new version of an app in a completely automated fashion, such as from a CI job.
 
 ## Using the helper scripts in your code
 
@@ -42,7 +38,7 @@ as follows:
 ```bash
 cd templates
 terraform-update-variable --name rails_app_version --value ami-67890
-terraform-deploy --remote-state-bucket my_s3_bucket --aws-region us-east-1
+terragrunt apply
 ```
 
 Running the commands above would:
