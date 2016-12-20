@@ -7,8 +7,8 @@ If you're not a customer, contact us at <info@gruntwork.io> or <http://www.grunt
 
 This folder contains several helper scripts for automatically building deployable, versioned artifacts of your apps:
 
-* `build-docker-image`: This script is meant to be run from a CI job to automatically build a Docker image. It runs the 
-  Docker build, tags the image with the sha1 of the most recent Git commit (or a custom tag, if specified), and then 
+* `build-docker-image`: This script is meant to be run from a CI job to automatically build a Docker image. It builds 
+  the Docker image, tags the image with the sha1 of the most recent Git commit (or a custom tag, if specified), and then 
   pushes the new image to a Docker registry (unless the same image/tag already exists in the registry!). 
 
 * `build-packer-artifact`: This script can be used to automatically build an artifact, such as an AMI, defined in a
