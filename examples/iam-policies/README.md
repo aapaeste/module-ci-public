@@ -1,12 +1,13 @@
 **Note**: This public repo contains the documentation for the private GitHub repo <https://github.com/gruntwork-io/module-ci>.
 We publish the documentation publicly so it turns up in online searches, but to see the source code, you must be a Gruntwork customer.
-If you're already a Gruntwork customer, the original source for this file is at: <https://github.com/gruntwork-io/module-ci/blob/master/examples/scheduled-lambda-job/README.md>.
+If you're already a Gruntwork customer, the original source for this file is at: <https://github.com/gruntwork-io/module-ci/blob/master/examples/iam-policies/README.md>.
 If you're not a customer, contact us at <info@gruntwork.io> or <http://www.gruntwork.io> for info on how to get access!
 
-# Scheduled Lambda Job Example
+# IAM Policies Example
 
-This folder shows an example of how to use the scheduled-lambda-job module to run a simple JavaScript function once
-per minute.
+This folder shows an example of how to create a set of IAM Policies for use with a CI system and attach them to an IAM
+User. In a real-world setting, you may wish to use the `iam-policies` modules to create the IAM Policies, but manually 
+create a new IAM User and manually attach the desired IAM Policies
 
 ## How do you run this example?
 
