@@ -6,19 +6,10 @@ If you're not a customer, contact us at <info@gruntwork.io> or <http://www.grunt
 # CI Modules
 
 This repo contains modules to automate common CI tasks, such as installing dependencies, running tests, and publishing
-releases. The modules are:
+releases. 
 
-* [gruntwork-module-circleci-helpers](/modules/gruntwork-module-circleci-helpers): This module contains helper scripts
-  used in CircleCI jobs of Gruntwork Modules. It includes a script to configure a CircleCI build for a Gruntwork module
-  and a script to run Go tests.
-* [build-helpers](/modules/build-helpers): This modules contains several helper scripts for automatically building
-  deployable, versioned artifacts of your apps using either Docker or Packer.
-* [terraform-helpers](/modules/terraform-helpers): This module contains several helper scripts for automatically
-  updating Terraform variables and deploying Terraform changes.
-* [docs-generator](/modules/docs-generator): This folder contains a Go app that can be used to generate public
-  documentation from a private GitHub repo.
-
-Click on each module above to see its documentation. Head over to the [examples folder](/examples) for examples.
+Check out the [modules folder](/modules) to see the available modules. Head over to the [examples folder](/examples) 
+for examples.
 
 ## What is a Gruntwork module?
 
