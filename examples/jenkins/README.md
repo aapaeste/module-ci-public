@@ -32,9 +32,11 @@ under `packer/jenkins.json`. To build the AMI:
 1. Set the `GITHUB_OAUTH_TOKEN` environment variable to a valid GitHub auth token with "repo" access. You can generate
    one here: https://github.com/settings/tokens
 1. In `packer/jenkins.json`, configure the AWS region you want to use via the `aws_region` variable.   
-1. Run `packer build -only=ubuntu-ami packer/jenkins.json` to create a new AMI in your AWS account. Note down the ID of 
-   this new AMI.
-   
+1. To run Jenkins on Ubuntu: `packer build -only=ubuntu-ami packer/jenkins.json`. 
+1. To run Jenkins on CentOS: `packer build -only=centos-ami packer/jenkins.json`. 
+
+Note down the ID of the new AMI, as you'll need it in the next section.   
+
 
 ### Deploy the Jenkins AMI with Terraform
 
@@ -76,8 +78,12 @@ You can run this Docker image on your local computer for faster ("unit") testing
 
 1. Set the `GITHUB_OAUTH_TOKEN` environment variable to a valid GitHub auth token with "repo" access. You can generate
    one here: https://github.com/settings/tokens
-1. Run `packer build -only=ubuntu-docker packer/jenkins.json`. 
-1. Run `docker-compose up`.
+1. To run Jenkins on Ubuntu:   
+    1. `packer build -only=ubuntu-docker packer/jenkins.json`
+    1. `docker-compose run --service-ports jenkins_ubuntu`
+1. To run Jenkins on CentOS:    
+    1. `packer build -only=centos-docker packer/jenkins.json` 
+    1. `docker-compose run --service-ports jenkins_centos`
 
 The `docker-compose.yml` in this folder will run the scripts in the `mock` folder to mock out a few dependencies and 
 boot up Jenkins locally on port 8080. After a few seconds, you should be able to test it by going to 

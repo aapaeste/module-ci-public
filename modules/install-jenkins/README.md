@@ -7,8 +7,8 @@ If you're not a customer, contact us at <info@gruntwork.io> or <http://www.grunt
 
 This module contains two scripts for working with [Jenkins CI server](https://jenkins.io):
  
-1. `install.sh`: This script will install Jenkins on a Linux server. Currently, only Ubuntu is supported, but CentOS 
-   support is coming soon. This script also installs the `run-jenkins` script.
+1. `install.sh`: This script will install Jenkins on a Linux server. Currently, Ubuntu and CentOS are supported.
+   This script also installs the `run-jenkins` script.
 1. `run-jenkins`: This script can be used to configure and run Jenkins. You will typically run this script while your
    server is booting.
 
