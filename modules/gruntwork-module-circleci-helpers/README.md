@@ -18,9 +18,6 @@ This module contains helper scripts used in CircleCI jobs of Gruntwork Modules, 
 * `build-go-binaries`: This script is meant to be run in a CircleCI job to build binaries for an app written in Go. It
   uses gox under the hood and provides reasonable defaults for parallelism, build flags, file naming, and
   os/architecture options.
-* `git-add-commit-push`: This script is meant to be run in a CI job to add, commit, and push a given set of files to
-  Git, handling common tasks like configuring Git in a CI job, checking for common error cases, and ensuring the commit
-  doesn't trigger another CI job.
 
 ## Installing the helpers
 
@@ -163,27 +160,3 @@ If you run `build-go-binaries` with no options, it will build the source code in
 `bin` folder and pick reasonable defaults for all the other values using [CircleCI environment
 variables](https://circleci.com/docs/environment-variables/).
 
-## Using the git-add-commit-push helper
-
-The most common use-case for this script is to automatically commit generated files (e.g. generated code, auto-filled
-version number, aut-generated docs) to Git at the end of a CI job. Here is an example `circle.yml` file that shows the
-usage:
-
-```yaml
-deployment:
-  release:
-    tag: /v.*/
-    commands:
-      # Generate a new file
-      - auto-generate-some-code --output generated-file.txt
-      # Commit the file to Git
-      - git-add-commit-push --path generated-file.txt --message "Automatically regenerate generated-file.txt"
-```
-
-The main options to pass to `git-add-commit-push` are:
-
-* `--path`: The path to add, commit, and push to Git. Required. May be specified more than once.
-* `--message`: The commit message. Required.
-
-The `git-add-commit-push` script relies on SSH auth, so make sure the SSH key you use in your CI job has push
-privileges for your repo.

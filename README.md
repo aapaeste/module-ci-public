@@ -76,7 +76,7 @@ using pre-commit hooks managed using [pre-commit](http://pre-commit.com/):
 That's it! Now just write your code, and every time you commit, `terraform fmt` will be run on the files you're 
 committing. 
 
-### Versioning
+### Versioning 
 
 We are following the principles of [Semantic Versioning](http://semver.org/). During initial development, the major
 version is to 0 (e.g., `0.x.y`), which indicates the code does not yet have a stable API. Once we hit `1.0.0`, we will

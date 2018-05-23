@@ -8,6 +8,9 @@ If you're not a customer, contact us at <info@gruntwork.io> or <http://www.grunt
 This module contains helper scripts that automate common git tasks:
 
 * `git-rebase`: This script can be used to merge git branch A into branch B using git rebase.
+* `git-add-commit-push`: This script is meant to be run in a CI job to add, commit, and push a given set of files to
+  Git, handling common tasks like configuring Git in a CI job, checking for common error cases, and ensuring the commit
+  doesn't trigger another CI job.
 
 ## Installing the helpers
 
@@ -28,3 +31,25 @@ dependencies:
     # Use the Gruntwork Installer to install the gruntwork-module-circleci-helpers module
     - gruntwork-install --module-name "git-helpers" --repo "https://github.com/gruntwork-io/module-ci" --tag "0.0.5"
 ```
+
+## Using the git-add-commit-push helper
+
+The most common use-case for this script is to automatically commit generated files (e.g. generated code, auto-filled
+version number, aut-generated docs) to Git at the end of a CI job. Here is an example `circle.yml` file that shows the
+usage:
+
+```yaml
+deployment:
+  release:
+    tag: /v.*/
+    commands:
+      # Generate a new file
+      - auto-generate-some-code --output generated-file.txt
+      # Commit the file to Git
+      - git-add-commit-push --path generated-file.txt --message "Automatically regenerate generated-file.txt"
+```
+
+The main options to pass to `git-add-commit-push` are:
+
+* `--path`: The path to add, commit, and push to Git. Required. May be specified more than once.
+* `--message`: The commit message. Required.

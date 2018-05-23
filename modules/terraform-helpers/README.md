@@ -20,6 +20,8 @@ You can install these scripts using the [Gruntwork Installer](https://github.com
 gruntwork-install --module-name "terraform-helpers" --repo "https://github.com/gruntwork-io/module-ci" --tag "0.0.1"
 ```
 
+Note that `terraform-update-variable` depends on the [git-helpers module](/modules/git-helpers) being installed!
+
 See the examples in the next section for how to use them.
 
 ## Examples
