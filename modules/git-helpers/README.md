@@ -14,10 +14,12 @@ This module contains helper scripts that automate common git tasks:
 
 ## Installing the helpers
 
-You can install the helpers using the [Gruntwork Installer](https://github.com/gruntwork-io/gruntwork-installer):
+You can install the helpers using the [Gruntwork Installer](https://github.com/gruntwork-io/gruntwork-installer)
+(make sure to replace `<VERSION>` below with the latest version from the [releases
+page](https://github.com/gruntwork-io/module-ci-public/releases)):
 
 ```bash
-gruntwork-install --module-name "git-helpers" --repo "https://github.com/gruntwork-io/module-ci" --tag "0.0.1"
+gruntwork-install --module-name "git-helpers" --repo "https://github.com/gruntwork-io/module-ci" --tag "<VERSION>"
 ```
 
 We recommend running this command in the `dependencies` section of `circle.yml`:
