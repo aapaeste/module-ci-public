@@ -110,6 +110,25 @@ A few things to note:
    Your tests can read in the value of this flag [as shown here](https://golang.org/pkg/testing/) to determine if a
    long-running test should be executed or not.
 
+### Passing extra arguments
+
+Sometimes, you might find that you need to tweak a few options to make your go tests run a certain way,
+  usually to help in debugging them.
+To achieve this, you're able to pass extra command line arguments to the `go test` command
+  through a commit message.
+For example, to run a specific test, your last commit could look something like this:
+
+```
+Some commit message. [go-test-args=-run SomeTestFunc]
+```
+
+Now when you push to the CI server, only `SomeTestFunc` is tested. You are able to set multiple options
+  as you normally would in the command line:
+
+```
+Some commit message. [go-test-args=-run SomeTestFunc -cpu 2]
+```
+
 ## Using the upload-github-release-assets helper
 
 To use this helper, you must first create a [GitHub access
