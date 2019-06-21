@@ -34,13 +34,13 @@ gruntwork-install \
   --module-name 'install-jenkins' \
   --repo 'https://github.com/gruntwork-io/module-ci' \
   --tag '<VERSION>' \
-  --version 2.89.4
-```   
+  --version 2.164.3
+```
 
-The command above will copy `install.sh` to your server, run it, install Jenkins 2.89.4, and copy the `run-jenkins` 
-script into `/usr/local/bin`. We recommend running this command in a [Packer template](https://www.packer.io/) so you 
-can create an AMI with Jenkins installed. Check out the [jenkins example](/examples/jenkins) for an example of such a 
-Packer template.    
+The command above will copy `install.sh` to your server, run it, install Jenkins 2.164.3, and copy the `run-jenkins`
+script into `/usr/local/bin`. We recommend running this command in a [Packer template](https://www.packer.io/) so you
+can create an AMI with Jenkins installed. Check out the [jenkins example](/examples/jenkins) for an example of such a
+Packer template.
 
 
 
