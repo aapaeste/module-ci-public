@@ -8,8 +8,8 @@ If you're not a customer, contact us at <info@gruntwork.io> or <http://www.grunt
 This module contains helper scripts used in CircleCI jobs of Gruntwork Modules, including:
 
 * `configure-environment-for-gruntwork-module`: This script is meant to be run in a Circle CI job to configure the
-  build environment for a typical Gruntwork module, including creating symlinks so the GOPATH works in CircleCI,
-  installing Terraform, Packer, and Glide, and using Glide to install Go dependencies.
+  build environment for a typical Gruntwork module, including installing Terraform, Packer, Go, and Terragrunt, and
+  using Go modules to install dependencies.
 * `run-go-tests`: This script is meant to be run in a CircleCI job to run automated tests written in Go with the proper
   settings for the test path (so it works with GOPATH), parallelism, and timeouts.
 * `upload-github-release-assets`: This script can be used to automatically upload assets to a [GitHub
@@ -43,11 +43,9 @@ dependencies:
 
 The `configure-environment-for-gruntwork-module` script will do the following:
 
-1. Create symlinks so GOPATH works correctly, as explained in [this
-   post](https://robots.thoughtbot.com/configure-circleci-for-go).
-1. Install Terraform, Packer, and Glide. If you wish to customize the version of each app that gets installed, you can
-   use the `--terraform-version`, `--packer-version`, and `--glide-version` flags, respectively.
-1. Run `glide install` in folders you specify via the `--go-src-path` parameter.
+1. Install Terraform, Packer, and Go. If you wish to customize the version of each app that gets installed, you can
+   use the `--terraform-version`, `--packer-version`, and `--go-version` flags, respectively.
+1. Run `go get -v -t -d` for folders you specify via the `--go-src-path` parameter.
 
 We recommend running this helper in the `dependencies` section of `circle.yml`:
 
@@ -72,17 +70,16 @@ dependencies:
   cache_directories:
     - ~/terraform
     - ~/packer
-    - ~/glide
 ```
 
 Three key things to note:
 
-1. While the `configure-environment-for-gruntwork-module` script can install Terraform, Packer, and Glide, it cannot
+1. While the `configure-environment-for-gruntwork-module` script can install Terraform, Packer, and Go, it cannot
    automatically add them to your `PATH`. Therefore, you have to do it yourself in the `machine` section of
    `circle.yml` as shown above.
 1. Use the `--go-src-path` option to tell `configure-environment-for-gruntwork-module` where your Go source files are
    located. You can specify the flag more than once if you have more than one Go app, as shown in the example above.
-   The `configure-environment-for-gruntwork-module` script will run `glide install` in each of those folders to
+   The `configure-environment-for-gruntwork-module` script will run `go get -v -t -d` in each of those folders to
    install their dependencies.
 1. To avoid reinstalling Terraform, Packer, and Glide over and over again, use `cache_directories` as shown above.
 
@@ -178,4 +175,3 @@ This will create 32 bit and 64 bit binaries for Linux, OS X, and Windows in the 
 If you run `build-go-binaries` with no options, it will build the source code in the current working directory into a
 `bin` folder and pick reasonable defaults for all the other values using [CircleCI environment
 variables](https://circleci.com/docs/environment-variables/).
-
